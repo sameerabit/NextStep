@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  app:
+    image: nginx
+    volumes:
+      - ./templates/conf.d/:/etc/nginx/templates
+      - ../:/var/www/html
+    build:
+      context: .
+    container_name: sapien_coder_app
+    ports:
+      - "8080:80"
+    environment:
+      - NGINX_HOST=sapien.coder.vi
+      - NGINX_PORT=80
+    tty: true
+    networks:
+        - nginxphp
+
+  php:
+    image: php:8-fpm-bullseye
+    container_name: sapien_coder_fpm
+    volumes:
+      - ../:/var/www/html
+    expose:
+      - 9000
+    networks:
+        - nginxphp
+  
+networks:
+  nginxphp:
+
