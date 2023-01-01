@@ -2,32 +2,43 @@ version: '3.8'
 
 services:
   app:
-    image: nginx
+    image: nginx:1.23.3
+    tty: true
     volumes:
       - ./templates/conf.d/:/etc/nginx/templates
       - ../:/var/www/html
     build:
       context: .
+      dockerfile: Dockerfile.server
     container_name: sapien_coder_app
     ports:
       - "8080:80"
     environment:
       - NGINX_HOST=sapien.coder.vi
       - NGINX_PORT=80
-    tty: true
+    # depends_on:
+    #   - php
     networks:
         - nginxphp
 
   php:
     image: php:8-fpm-bullseye
     container_name: sapien_coder_fpm
+    build:
+      context: .
+      dockerfile: Dockerfile.phplan
     volumes:
       - ../:/var/www/html
     expose:
       - 9000
+    tty: true
     networks:
         - nginxphp
-  
+  db:
+    image: postgres:12.13-bullseye
+    container_name: postgres_db
+    environment:
+      POSTGRES_PASSWORD: admin
 networks:
   nginxphp:
 
