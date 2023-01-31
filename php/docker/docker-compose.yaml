@@ -29,16 +29,25 @@ services:
       dockerfile: Dockerfile.phplan
     volumes:
       - ../:/var/www/html
+      - ./phpenv/php/php.ini:/usr/local/etc/php/php.ini
     expose:
       - 9000
     tty: true
     networks:
         - nginxphp
+    depends_on:
+        - db
   db:
     image: postgres:12.13-bullseye
     container_name: postgres_db
+    volumes:
+      - ../db_data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: admin
+      POSTGRES_DB: kuliyata
+      POSTGRES_USER: postgres
+    networks:
+      - nginxphp
 networks:
   nginxphp:
 
