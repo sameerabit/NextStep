@@ -3,7 +3,7 @@ server {
     listen  [::]:80;
     server_name  ${NGINX_HOST};
 
-    root   /var/www/html;
+    root   /var/www/html/Expertizing/public;
 
     #access_log  /var/log/nginx/host.access.log  main;
     error_log  /var/log/nginx/error.log  warn;
