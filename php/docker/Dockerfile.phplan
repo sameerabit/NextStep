@@ -8,3 +8,7 @@ RUN  apt -y install git
 RUN  apt -y install libpq-dev
 RUN  docker-php-ext-configure pgsql
 RUN  docker-php-ext-install pdo pdo_pgsql pgsql
+RUN  curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+RUN  apt-get install -y nodejs-legacy
+RUN  npm update -g npm
+RUN  npm install -g yarn
