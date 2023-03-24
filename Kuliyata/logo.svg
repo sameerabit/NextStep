@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <rect x="0" y="0" width="500" height="500" fill="#2ecc71"/>
+  <path d="M250 70 L170 170 L170 330 L250 430 L330 330 L330 170 Z" fill="#ffffff"/>
+  <path d="M250 90 L190 170 L190 330 L250 410 L310 330 L310 170 Z" fill="#2ecc71"/>
+  <circle cx="250" cy="250" r="150" fill="#ffffff"/>
+  <path d="M230 290 L180 330 L250 330 Z" fill="#2ecc71"/>
+  <path d="M320 250 L280 200 L280 270 Z" fill="#2ecc71"/>
+  <text x="50%" y="50%" fill="white" font-size="60" font-weight="bold" text-anchor="middle">Kuliyata.lk</text>
+</svg>

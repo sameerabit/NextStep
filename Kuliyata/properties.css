@@ -1,0 +1,47 @@
+.property-list {
+    margin-top: 20px;
+}
+
+.property-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.property-item h4 {
+    margin-top: 0;
+}
+
+.property-item ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.property-item ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination .page-link {
+    color: #555;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.pagination .page-link:focus {
+    box-shadow: none;
+}
+
+.pagination .page-link:hover {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}

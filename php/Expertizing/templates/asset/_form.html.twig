@@ -1,0 +1,53 @@
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+
+<div id="app">
+	<div {{ vue_component('MyzoneComponent' ) }}></div>
+	<upload-form @upload-complete="handleUploadComplete"></upload-form>
+</div>
+
+<div class="row">
+	<div class="mx-auto col-10 col-md-8 col-lg-8">
+		<form id="asset_form" class="needs-validation" novalidate>
+
+			<div class="row"></div>
+			<div class="row">
+				<div class="col-md-12 mb-3">
+					{{ form_row(form.title) }}
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="col-md-4 mb-3">
+					{{ form_row(form.phoneNumber) }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 mb-3">
+					{{ form_row(form.description, {'attr': {'style': 'height:250px',}}) }}
+				</div>
+			</div>
+			<button class="btn btn-primary" type="submit">Submit form</button>
+		</form>
+
+	</div>
+
+</div>
+{% block javascripts %}
+	{{ encore_entry_script_tags('app') }}
+{% endblock %}
+
+{% block stylesheets %}
+	<style>
+
+		.dropzone {
+			background: white;
+			border-radius: 5px;
+			border: 2px dashed rgb(0, 135, 247);
+			border-image: none;
+			max-width: 500px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	</style>
+{% endblock %}
