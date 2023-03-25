@@ -4,6 +4,15 @@
   </div>
 </template>
 
+<style>
+
+  .dropzone {
+    max-width: 730px !important;
+    height: 300px !important;
+  }
+
+</style>
+
 <script>
 import axios from 'axios';
 import Dropzone from 'dropzone';

@@ -3,12 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Asset;
+use App\Entity\User;
 use App\Form\AssetType;
 use App\Repository\AssetRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\CurrentUser;
 
 #[Route('/assets')]
 class AssetController extends AbstractController
@@ -22,24 +24,22 @@ class AssetController extends AbstractController
     }
 
     #[Route('/new', name: 'app_asset_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, AssetRepository $assetRepository): Response
+    public function new(Request $request, AssetRepository $assetRepository, #[CurrentUser] ?User $user): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED');
         $asset = new Asset();
         $form = $this->createForm(AssetType::class, $asset);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
+            $asset->setUser($user);
             $assetRepository->save($asset, true);
 
             return $this->redirectToRoute('app_asset_index', [], Response::HTTP_SEE_OTHER);
         }
-        $words = ['sky', 'cloud', 'wood', 'rock', 'forest',
-            'mountain', 'breeze'];
+        
         return $this->render('asset/new.html.twig', [
             'asset' => $asset,
             'form' => $form,
-            'words' => $words
         ]);
     }
 

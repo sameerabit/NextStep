@@ -1,19 +1,26 @@
 {% form_theme form 'bootstrap_5_layout.html.twig' %}
 
 
-<div id="app">
-	<div {{ vue_component('MyzoneComponent' ) }}></div>
-	<upload-form @upload-complete="handleUploadComplete"></upload-form>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 mb-3">
+			<div id="app">
+				<div {{ vue_component('MyzoneComponent' ) }}></div>
+				<upload-form @upload-complete="handleUploadComplete"></upload-form>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="row">
 	<div class="mx-auto col-10 col-md-8 col-lg-8">
-		<form id="asset_form" class="needs-validation" novalidate>
+		<form action="{{ url('app_asset_new') }}" id="asset_form" method="POST" class="needs-validation" novalidate>
 
 			<div class="row"></div>
 			<div class="row">
 				<div class="col-md-12 mb-3">
 					{{ form_row(form.title) }}
+					{{ form_row(form._token) }}
 				</div>
 
 			</div>
@@ -21,13 +28,21 @@
 				<div class="col-md-4 mb-3">
 					{{ form_row(form.phoneNumber) }}
 				</div>
+				<div class="col-md-4 mb-3">
+					{{ form_row(form.type) }}
+				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12 mb-3">
 					{{ form_row(form.description, {'attr': {'style': 'height:250px',}}) }}
 				</div>
 			</div>
-			<button class="btn btn-primary" type="submit">Submit form</button>
+			<div class="row">
+				<div class="col-md-12 mb-3 text-center">
+					<button class="btn btn-primary" type="submit">Submit form</button>
+				</div>
+			</div>
+
 		</form>
 
 	</div>

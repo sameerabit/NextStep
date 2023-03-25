@@ -20,16 +20,18 @@ class Asset
     #[ORM\Column(length: 15)]
     private ?string $phoneNumber = null;
 
+    #[ORM\Column(type: Types::STRING, nullable: true)]
+    private ?string $type = null;
+
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
+
+    #[ORM\Column(type: Types::JSON, nullable: true)]
+    private ?string $images = null;
 
     #[ORM\ManyToOne(inversedBy: 'assets')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
-
-    private $photo1;
-    private $photo2;
-    private $photo3;
 
     public function getId(): ?int
     {
@@ -84,64 +86,43 @@ class Asset
         return $this;
     }
 
-    
 
     /**
-     * Get the value of photo
+     * Get the value of images
      */ 
-    public function getPhoto1()
+    public function getImages()
     {
-        return $this->photo1;
+        return $this->images;
     }
 
     /**
-     * Set the value of photo
+     * Set the value of images
      *
      * @return  self
      */ 
-    public function setPhoto1($photo1)
+    public function setImages($images)
     {
-        $this->photo1 = $photo1;
+        $this->images = $images;
 
         return $this;
     }
 
     /**
-     * Get the value of photo2
+     * Get the value of type
      */ 
-    public function getPhoto2()
+    public function getType()
     {
-        return $this->photo2;
+        return $this->type;
     }
 
     /**
-     * Set the value of photo2
+     * Set the value of type
      *
      * @return  self
      */ 
-    public function setPhoto2($photo2)
+    public function setType($type)
     {
-        $this->photo2 = $photo2;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of photo3
-     */ 
-    public function getPhoto3()
-    {
-        return $this->photo3;
-    }
-
-    /**
-     * Set the value of photo3
-     *
-     * @return  self
-     */ 
-    public function setPhoto3($photo3)
-    {
-        $this->photo3 = $photo3;
+        $this->type = $type;
 
         return $this;
     }

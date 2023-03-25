@@ -33,4 +33,4 @@ yarn-error.log
 ###< lexik/jwt-authentication-bundle ###
 
 
-/php/db_data/pg_stat_tmp
+../db_data/base
