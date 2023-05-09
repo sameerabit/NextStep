@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New PhoneDirectory{% endblock %}
+
+{% block body %}
+    <h1>Create new PhoneDirectory</h1>
+
+    {{ include('phone_directory/_form.html.twig') }}
+
+    <a href="{{ path('app_phone_directory_index') }}">back to list</a>
+{% endblock %}

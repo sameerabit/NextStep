@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PhoneDirectory{% endblock %}
+
+{% block body %}
+    <h1>Edit PhoneDirectory</h1>
+
+    {{ include('phone_directory/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_phone_directory_index') }}">back to list</a>
+
+    {{ include('phone_directory/_delete_form.html.twig') }}
+{% endblock %}
