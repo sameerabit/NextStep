@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\AssetRepository;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -32,6 +33,10 @@ class Asset
     #[ORM\ManyToOne(inversedBy: 'assets')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
+
+    #[ORM\ManyToOne(inversedBy: 'assets')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?District $district = null;
 
     public function getId(): ?int
     {
@@ -123,6 +128,26 @@ class Asset
     public function setType($type)
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of district
+     */ 
+    public function getDistrict()
+    {
+        return $this->district;
+    }
+
+    /**
+     * Set the value of district
+     *
+     * @return  self
+     */ 
+    public function setDistrict($district)
+    {
+        $this->district = $district;
 
         return $this;
     }

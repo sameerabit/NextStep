@@ -42,13 +42,13 @@ class PhoneDirectoryController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_phone_directory_show', requirements: ['page' => '\d+'], methods: ['GET'])]
-    public function show(PhoneDirectory $phoneDirectory): Response
-    {
-        return $this->render('phone_directory/show.html.twig', [
-            'phone_directory' => $phoneDirectory,
-        ]);
-    }
+    // #[Route('/{id}', name: 'app_phone_directory_show', requirements: ['page' => '\d+'], methods: ['GET'])]
+    // public function show(PhoneDirectory $phoneDirectory): Response
+    // {
+    //     return $this->render('phone_directory/show.html.twig', [
+    //         'phone_directory' => $phoneDirectory,
+    //     ]);
+    // }
 
     #[Route('/{id}/edit', name: 'app_phone_directory_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, PhoneDirectory $phoneDirectory, PhoneDirectoryRepository $phoneDirectoryRepository): Response
@@ -68,10 +68,10 @@ class PhoneDirectoryController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_phone_directory_delete', methods: ['POST'])]
+    #[Route('/{id}/show', name: 'app_phone_directory_delete', methods: ['POST'])]
     public function delete(Request $request, PhoneDirectory $phoneDirectory, PhoneDirectoryRepository $phoneDirectoryRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$phoneDirectory->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $phoneDirectory->getId(), $request->request->get('_token'))) {
             $phoneDirectoryRepository->remove($phoneDirectory, true);
         }
 
@@ -81,6 +81,6 @@ class PhoneDirectoryController extends AbstractController
     #[Route('/test', name: 'phone_directory_csv_upload', methods: ['GET'])]
     public function upload(Request $request): Response
     {
-        
+        dd('test');
     }
 }

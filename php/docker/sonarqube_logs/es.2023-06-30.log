@@ -1,0 +1,7 @@
+2023.06.30 01:20:30 WARN  es[][o.e.t.ThreadPool] timer thread slept for [1.6h/5824628ms] on absolute clock which is above the warn threshold of [5000ms]
+2023.06.30 02:59:32 WARN  es[][o.e.t.ThreadPool] timer thread slept for [1.6h/5912914ms] on absolute clock which is above the warn threshold of [5000ms]
+2023.06.30 03:22:15 WARN  es[][o.e.t.ThreadPool] timer thread slept for [22.2m/1333290ms] on absolute clock which is above the warn threshold of [5000ms]
+2023.06.30 03:22:44 WARN  es[][o.e.t.ThreadPool] absolute clock went backwards by [624ms/624ms] while timer thread was sleeping
+2023.06.30 07:40:18 WARN  es[][o.e.c.c.ClusterBootstrapService] this node is locked into cluster UUID [oMEdOrFyRPWGLF8wMZTmHg] but [cluster.initial_master_nodes] is set to [sonarqube]; remove this setting to avoid possible data loss caused by subsequent cluster bootstrap attempts; for further information see https://www.elastic.co/guide/en/elasticsearch/reference/8.7/important-settings.html#initial_master_nodes
+2023.06.30 10:58:20 WARN  es[][o.e.t.ThreadPool] timer thread slept for [5m/300231ms] on absolute clock which is above the warn threshold of [5000ms]
+2023.06.30 11:06:58 WARN  es[][o.e.t.ThreadPool] timer thread slept for [8.1m/488555ms] on absolute clock which is above the warn threshold of [5000ms]

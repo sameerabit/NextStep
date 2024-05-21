@@ -3,14 +3,15 @@ server {
     listen  [::]:80;
     server_name  ${NGINX_HOST};
 
-    root   /var/www/html/Expertizing/public;
+    root   /var/www/html/rental_buddy/public;
 
     #access_log  /var/log/nginx/host.access.log  main;
     error_log  /var/log/nginx/error.log  warn;
     access_log /var/log/nginx/access.log;
 
     location / {
-        index  index.htm index.php index.html;
+        proxy_set_header Connection "";
+        index  index.htm index.php index.html app.php app_dev.php;
         try_files $uri /index.php$is_args$args;
     }
 
@@ -35,7 +36,7 @@ server {
         include        fastcgi_params;
         fastcgi_split_path_info ^(.+?\.php)(/.+)\$;
         fastcgi_pass   php:9000;
-        fastcgi_index  index.php;
+        fastcgi_index  app.php;
         fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
         fastcgi_param  PATH_INFO $fastcgi_path_info;
     }
