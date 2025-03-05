@@ -21,3 +21,12 @@ STAR Method
  - Result
 
    Agility - Code and DB Support for any demographic data, Save development cost of keeping new entity
+
+
+# Resume
+
+##  Your resume should ideally show initiative. What sort of projects have you started?
+
+ Startups are likely to ask you a lot of questions about your experience. Pay special attention
+to the Behavioral Questions section.
+
